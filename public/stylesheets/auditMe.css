@@ -1,0 +1,21 @@
+/* 
+    Document   : auditMe
+    Created on : 22 Sep, 2011, 12:05:11 AM
+    Author     : kichu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+body{
+
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
