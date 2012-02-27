@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
+    3.times {@expense.expense_details.build}
   end
 
   def create

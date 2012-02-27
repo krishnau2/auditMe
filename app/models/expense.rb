@@ -1,11 +1,6 @@
 class Expense < ActiveRecord::Base
-  belongs_to :category
+	has_many :expense_details, :dependent => :destroy
 
-  def category_name
-    category.name if category
-  end
-
-  def category_name=(name)
-    self.category = Category.find_or_create_by_name(name) unless name.blank?
-  end
+	accepts_nested_attributes_for :expense_details
+	attr_accessible :expense_date,:expense_details_attributes,:category_name
 end

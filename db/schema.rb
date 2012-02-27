@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110921190505) do
+ActiveRecord::Schema.define(:version => 20111110183451) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -18,10 +18,17 @@ ActiveRecord::Schema.define(:version => 20110921190505) do
     t.datetime "updated_at"
   end
 
-  create_table "expenses", :force => true do |t|
-    t.date     "date"
+  create_table "expense_details", :force => true do |t|
+    t.integer  "expense_id"
     t.integer  "category_id"
     t.decimal  "amount",      :precision => 10, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "expenses", :force => true do |t|
+    t.date     "expense_date"
+    t.decimal  "total_amount", :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,17 +1,25 @@
 <h1>Expense#new</h1>
 <%= form_for (@expense) do |f| %>
-  <%= f.label :date %> :
-  <%= f.text_field :date %>
+  <%= f.label :expense_date %> :
+  <%= f.text_field :expense_date %>
   <hr />
   <table id="expense_details">
     <tr>
       <th> <%= f.label :category_id %></th>
       <th> <%= f.label :amount %></th>
     </tr>
-    <tr id="field_template" style="display: none;">
-      <td><%= f.text_field :category_name %></td>
-      <td><%= f.text_field :amount %></td>
-    </tr>
+    <% f.fields_for :expense_details do |builder| %>
+      <tr id="field_template" >
+        <td><%= builder.text_field :category_name %></td>
+        <td><%= builder.text_field :amount %></td>
+      </tr>
+    <% end %>
   </table>
   <%= f.submit %>
 <% end %>
+<hr />
+<table>
+  <tr>
+    <th></th>
+  </tr>
+</table>
