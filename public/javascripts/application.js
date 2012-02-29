@@ -1,9 +1,30 @@
 var newId = 1;
 
 $(document).ready(function(){
-    $( "#expense_expense_date" ).datepicker({
-        dateFormat: "yy-mm-dd"
-    });
+	$('#calendar').fullCalendar({
+			theme: true,
+			viewDisplay: function(view) {
+				console.log(view)
+        // alert('The new title of the view is ' + view.title);
+    }
+        // put your options and callbacks here
+    })
+
+  $( "#expense_expense_date" ).datepicker({
+      dateFormat: "yy-mm-dd"
+  });
+
+  $(".expense_amount").change(function(){
+    var Total = 0;
+    $(".expense_amount").each(function(i) 
+    { 
+      var amt = parseFloat(this.value);
+      if(!isNaN(amt)){
+        Total = Total + amt
+      }
+   	});
+    $("#expense_total_amount").val(Total);
+  });
 
     //createRow();
 

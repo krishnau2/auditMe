@@ -1,0 +1,18 @@
+<%= link_to "Back", new_expense_path %>
+<hr />
+<h3>Date : <%= @expense.expense_date %></h3>
+<h3>Total : <%= @expense.total_amount %></h3>
+<table>
+	<tr>
+		<th></th>
+		<th>Category</th>
+		<th>Amount</th>
+	</tr>
+	<% @expense.expense_details.each_with_index do |exp, i| %>
+		<tr>
+			<td><%= i+1 %> </td>
+			<td><%= exp.category.name %></td>
+			<td><%= exp.amount %></td>
+		</tr>
+	<% end %>
+</table>
